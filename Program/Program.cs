@@ -21,12 +21,28 @@ namespace FirstSertification
         {
             int sizeNewArray = CountShortString(arrs);
             string[] newArrs = new string[sizeNewArray];
+            int j = 0;
+            foreach (string i in arrs)
+            {
+                if (i.Length <= 3)
+                {
+                    newArrs[j] = i;
+                    j++;
+                }
+            }
             return newArrs;
         }
         static void ShowArray(string[] arrs)
         {
             string[] newArrs = CreateNewShortArray(arrs);
-            Console.WriteLine($"[ \"{string.Join("\", \"", newArrs)}\" ]");
+            if (newArrs.Length > 0)
+            {
+                Console.WriteLine($"[ \"{string.Join("\", \"", newArrs)}\" ]");
+            }
+            else
+            {
+                Console.WriteLine("[]");
+            }
         }
 
         static void Main(string[] args)
