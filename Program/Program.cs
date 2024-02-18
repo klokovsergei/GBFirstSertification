@@ -4,3 +4,41 @@
 // При решении не рекомендуется пользоваться коллекциями, лучше обойтись
 // исключительно массивами.
 
+namespace FirstSertification
+{
+    class Program
+    {
+        static int CountShortString(string[] arrs)
+        {
+            int count = 0;
+            foreach (string i in arrs)
+            {
+                if (i.Length <= 3) count++ ;
+            }
+            return count;
+        }
+        static string[] CreateNewShortArray(string[] arrs)
+        {
+            int sizeNewArray = CountShortString(arrs);
+            string[] newArrs = new string[sizeNewArray];
+            return newArrs;
+        }
+        static void ShowArray(string[] arrs)
+        {
+            string[] newArrs = CreateNewShortArray(arrs);
+            Console.WriteLine($"[ \"{string.Join("\", \"", newArrs)}\" ]");
+        }
+
+        static void Main(string[] args)
+        {
+            string[] strings1 = {"Привет", "Да", "Хорошо", "Что"};
+            string[] strings2 = {"Hello", "2", "world", ":-)"};
+            string[] strings3 = {"1234", "1567", "-2"};
+            string[] strings4 = {"Russia", "Denmark", "Kazan"};
+            ShowArray(strings1);
+            ShowArray(strings2);
+            ShowArray(strings3);
+            ShowArray(strings4);
+        }
+    }
+}
